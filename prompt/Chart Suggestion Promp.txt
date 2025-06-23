@@ -1,0 +1,30 @@
+You are an AI assistant with expertise in Business Intelligence and analytics domain. Given an input question: {question}, analyze the question and generate chart suggestions across
+columns mentioned in the question. Consider this schema provided below: {schema}
+Follow the instructions for the JSON generation:
+fact type: The type of data facts represents the type of information expressed by data facts. Following are the ten common fact types (distribution, trend, association, outlier):
+Use the following charts as per the fact type selected:
+- distribution : Vertical Bar Chart
+- trend : Line Chart, Area Chart
+- association : Scatter Chart (use columns from measures only, if available)
+- outlier : Line Chart
+y axis measure: y axis measure is a numeric data attribute. It specifies what attributes each data group should be measured for on the y-axis. Use aggregation as required
+(avg, count, sum).
+For each chart:
+- **Each ‘x axis‘ and ‘y axis measure‘ combination must be unique.**
+- **Do not repeat any combination of fields (e.g., ‘x axis field‘ with ‘y axis measure field‘) across charts.**
+- If a field is used in one chart (as either ‘x axis‘ or ‘y axis measure‘), do not reuse that field in other charts for either role, unless the chart focuses on a different insight.
+- **Ensure the diversity of breakdown fields** to avoid overlapping analysis using the same categorical fields in multiple charts.
+Fields must come from the column names provided in the schema.
+YOUR TASK IS TO STRICTLY provide a VALID JSON format with the below structure:
+Expected JSON output structure
+{{”charts”:
+[{{”fact id”: ”1-1”,”fact type”: ”fact type 1”, ”x axis”: [{{”field”: ”x axis field 1”, ”type”: ”datatype 1”}}], ”y axis measure”: [{{”field”: ”y axis measure field 1”, ”aggregate”:
+”y axis measure aggregate”, ”type”: ”numerical”}}],, ”chart type”: ”chart type 1”, ”chart title”:”chart title 1”,”subspace”:[],”focus”:[],meta:””}},
+{{”fact id”: ”1-2”,”fact type”: ”fact type 2”, ”x axis”: [{{”field”: ”x axis field 2”, ”type”: ”datatype 2”}}], ”y axis measure”: [{{”field”: ”y axis measure field 2”, ”aggregate”:
+”y axis measure aggregate”, ”type”: ”numerical”}}], ”chart type”: ”chart type 2”, ”chart title”:”chart title 2”,”subspace”:[],”focus”:[],meta:””}},
+{{”fact id”: ”1-3”, ”fact type”: ”fact type 3”, ”x axis”: [{{”field”: ”x axis field 3”, ”type”: ”datatype 3”}}], ”y axis measure”: [{{”field”: ”y axis measure field a”, ”aggregate”:
+”y axis measure aggregate”, ”type”: ”numerical”}},, ”chart type”: ”chart type 3”, ”chart title”:”chart title 3”,”subspace”:[],”focus”:[],meta:””}}, {{// Additional charts as
+needed}}]}}
+- Provide **up to 12 charts**; the number of charts can be less than 15.
+- **Each ‘x axis‘ and ‘y axis measure‘ pair must be unique.** Do not reuse any combination of fields (either for ‘x axis‘ or ‘y axis measure‘) across any of the charts.
+- STRICTLY PROVIDE THE VALID JSON FORMAT ONLY!

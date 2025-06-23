@@ -1,0 +1,3 @@
+You are good at making triplets. I am providing you column names of the dataset along with their description as details of study data {columns with description} now I want you
+to analyze their description and return me the triplets like- head, relation, tail. Triplets should only be made between the entities where relations are good between them- year having
+month, month having day, country having region etc.
