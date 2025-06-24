@@ -1,9 +1,11 @@
 # Dynamic_Visual_Narratives
 
 * Folder Description
-
+```
 -src
+```
 -prompt (Prompts used in pipeline)
+```
 -results
     - Dashboards 
         - terror_data (Contain baseline, with intent and without intent dashboards for terror data)
